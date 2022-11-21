@@ -1,0 +1,5 @@
+1. copy to a local folder
+2. install the dependencies with npm install
+3. create a local or online database in mongo db.
+4. to bring up the backend run the command npm run start:server
+5. to run the ngserver frontend
