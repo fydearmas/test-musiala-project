@@ -1,0 +1,17 @@
+<p>
+  <mat-toolbar color="primary">
+    <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+      <button mat-button [matMenuTriggerFor]="menu">Menu</button>
+      <mat-menu #menu="matMenu">
+        <!-- <button mat-menu-item (click)="openAddGatewayModal()">Gateways</button> -->
+        <button mat-menu-item routerLink="/create_gateway" routerLinkActive="router-link-active" >Create Gateways</button>
+        <button mat-menu-item routerLink="/" routerLinkActive="router-link-active" >List of Gateways</button>
+        <button mat-menu-item routerLink="/create_device" routerLinkActive="router-link-active" >Create Device</button>
+      </mat-menu>
+    </button>
+
+    <span class="example-spacer"></span>
+    <span  class="example-spacer">Test Musiala</span>
+
+  </mat-toolbar>
+</p>

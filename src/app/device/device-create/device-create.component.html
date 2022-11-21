@@ -1,0 +1,40 @@
+<mat-card>
+  <form (submit)="saveDevice(deviceForm)" class="example-form" #deviceForm="ngForm">
+    <mat-form-field class="example-full-width" appearance="fill" >
+      <input matInput placeholder="Serial Uid" name="serial" type="text" ngModel required type="number" #serial="ngModel"/>
+      <mat-error *ngIf="serial.invalid">Field serial id is empty</mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width" appearance="fill">
+      <input matInput placeholder="Vendor"  name="vendor" type="text" ngModel required #vendor="ngModel"/>
+      <mat-error *ngIf="vendor.invalid">Field vendor is empty</mat-error>
+    </mat-form-field>
+
+    <!-- <mat-form-field class="example-full-width" appearance="fill">
+      <input matInput placeholder="Created Date" name="date_created" type="text" ngModel required #date_created="ngModel"/>
+      <mat-error *ngIf="date_created.invalid">Field date created is empty</mat-error>
+    </mat-form-field> -->
+
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>Choose a date</mat-label>
+      <input matInput [matDatepicker]="picker"  name="date_created" type="text" ngModel required #date_created="ngModel"/>
+      <mat-hint>MM/DD/YYYY</mat-hint>
+      <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>Status</mat-label>
+      <mat-select [(value)]="selectedValue" name="status" type="text" ngModel required #status="ngModel" >
+        <mat-option value="offline" >Offline</mat-option>
+        <mat-option value="online" >Online</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+
+    <button mat-raised-button color="primary" type="submit">
+      Add Device
+    </button>
+    <br />
+  </form>
+</mat-card>

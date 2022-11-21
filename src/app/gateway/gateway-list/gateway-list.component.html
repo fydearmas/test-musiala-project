@@ -1,0 +1,57 @@
+<table
+  mat-table
+  [dataSource]="table_gateway"
+  class="mat-elevation-z8"
+  *ngIf="table_gateway.length > 0">
+  <!--- Note that these columns can be defined in any order.
+        The actual rendered columns are set as a property on the row definition" -->
+
+  <!-- Position Column -->
+  <ng-container matColumnDef="id">
+    <th mat-header-cell *matHeaderCellDef >Id</th>
+    <td mat-cell *matCellDef="let element">{{ element.id }}</td>
+  </ng-container>
+
+  <!-- Position Column -->
+  <ng-container matColumnDef="serial">
+    <th mat-header-cell *matHeaderCellDef >Serial</th>
+    <td mat-cell *matCellDef="let element">{{ element.serial }}</td>
+  </ng-container>
+
+  <!-- Name Column -->
+  <ng-container matColumnDef="name">
+    <th mat-header-cell *matHeaderCellDef >Name</th>
+    <td mat-cell *matCellDef="let element">{{ element.name }}</td>
+  </ng-container>
+
+  <!-- Weight Column -->
+  <ng-container matColumnDef="ip">
+    <th mat-header-cell *matHeaderCellDef >Ip</th>
+    <td mat-cell *matCellDef="let element">{{ element.ip }}</td>
+  </ng-container>
+
+  <!-- Symbol Column -->
+  <ng-container matColumnDef="devices">
+    <th mat-header-cell *matHeaderCellDef class="center">Devices</th>
+    <td mat-cell *matCellDef="let element">
+        <!-- <ul><b>id:</b> {{ element.devices[0].id }} </ul>-->
+        <!-- <ul><b>uid:</b> {{ element.devices.uid }} </ul> -->
+        <!-- <ul><b>vendor:</b> {{ element.devices[0].vendor }} </ul> -->
+        <!-- <ul><b>create date:</b> {{ element.devices[0].date_created }} </ul>
+        <ul><b>status:</b> {{ element.devices[0].status }} </ul> -->
+    </td>
+  </ng-container>
+
+  <!-- Symbol Column -->
+  <ng-container matColumnDef="options">
+    <th mat-header-cell *matHeaderCellDef>Options</th>
+    <td mat-cell *matCellDef="let element">
+      <a href="#" (click)="onDelete(element.id )"><mat-icon>delete</mat-icon></a>
+    </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+</table>
+<br />
+<hr />

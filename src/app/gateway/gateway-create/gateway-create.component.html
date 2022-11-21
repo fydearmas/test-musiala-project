@@ -1,0 +1,37 @@
+<mat-card>
+  <form (submit)="saveGateway(gatewayForm)" class="example-form" #gatewayForm="ngForm">
+    <mat-form-field class="example-full-width" appearance="fill" >
+      <mat-label>Gateway Serial Id</mat-label>
+      <input matInput placeholder="Ex. my serial id" name="serial" type="text" ngModel required #serial="ngModel"/>
+      <mat-error *ngIf="serial.invalid">Field serial is empty</mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>Gateway Name</mat-label>
+      <input matInput placeholder="Ex. my gateway"  name="name" type="text" ngModel required #name="ngModel"/>
+      <mat-error *ngIf="name.invalid">Field name is empty</mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>Gateway Ip</mat-label>
+      <input matInput placeholder="xxx.xxx.xxx.xxx" pattern="^((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$"  name="ip" type="text" ngModel required #ip="ngModel"/>
+      <mat-error *ngIf="ip.invalid">Field ip is empty or validation errors</mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-select placeholder="List of Devices" name="device" #device="ngModel" ngModel  [(value)]="selectedDevices" multiple>
+        <mat-option *ngFor="let t of dev" [value]="t">{{t.uid + ' '}}{{t.vendor + ' '}}{{t.date_created + ' '}}{{t.status + ' '}} </mat-option>
+        <mat-error *ngIf="device.invalid">Select more than 10</mat-error>
+      </mat-select>
+    </mat-form-field>
+    <!-- <p>
+      {{selectedToppings | json}}
+    </p> -->
+
+    <button mat-raised-button color="primary" type="submit">
+      Add Gateway
+    </button>
+    <br />
+  </form>
+</mat-card>
+
